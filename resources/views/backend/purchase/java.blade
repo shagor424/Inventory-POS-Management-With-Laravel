@@ -1,0 +1,69 @@
+<script type="text/javascript">
+  $(document).ready(function () {
+  $(document).on("click",".addeven tmore", function (){
+    var purchase_date = $('#purchase_date').val();
+    var purchase_code = $('#purchase_code').val();
+    var supplier_id = $('#supplier_id').val();
+    var category_id = $('#category_id').val();
+    var item_name = $('#category_id').find('option:selected').text();
+    var product_id = $('#product_id').val();
+    var product_name = $('#product_id').find('option:selected').text();
+
+    if(purchase_date == ''){
+      $.notify("Purchase Date Required",{globalPosition:'top right}',className:'error'}); 
+      return false;
+    }
+     if(purchase_code == ''){
+      $.notify("Purchase Code Required",{globalPosition:'top right}',className:'error'});
+      return false;
+    }
+    if(supplier_id == ''){
+      $.notify("Supplier Name Required",{globalPosition:'top right}',className:'error'});
+      return false;
+    }
+     if(category_id == ''){
+      $.notify("Category Name Required",{globalPosition:'top right}',className:'error'});
+      return false;
+    }
+     if(product_id == ''){
+      $.notify("Product_Name Required",{globalPosition:'top right}',className:'error'});
+      return false;
+    }
+     
+      var source = $("#document-template").html();
+      var template = Handlebars.compile(source);
+      var data = {
+        purchase_date:purchase_date,
+        purchase_code:purchase_code,
+        supplier_id:supplier_id,
+        category_id:category_id,
+        product_id:product_id
+
+      };
+      var html = template(data);
+      $('#addrow').append(html);
+      $('[data-toggle="tooltip"]').tooltip();
+
+  });
+  $(document).on("click",".removeeventmore",function(event){
+    $(this).closest(".delete_add-more_item").remove();
+    totalAmountPrice();
+  });
+  $(document).on('keyup click','.unit_price,.buy_quantity',function(){
+    var unit_price = $(this).closest("tr").find("input.unit_price").val();
+    var qty = $(this).closest("tr").find("input.buy_quantity").val();
+    var total = unit_price * qty;
+    $(this).closest("tr").find("input.buy_price");
+  });
+    function totalAmountPrice(){
+      var sum =0;
+      $(".buy_price").each(function(){
+        var value = $(this).val();
+        if(isNuN(value) && value.length != 0){
+          sum += parseFloat(value);
+        }
+      });
+      $('#estimated_amount').val(sum);
+    }
+});
+</script>
