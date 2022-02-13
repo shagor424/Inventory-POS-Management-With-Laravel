@@ -135,7 +135,7 @@
                     </tr>
                   </tbody>
                 </table>
-                <button id="approve" type="submit" class="btn btn-danger float-right">Invoice Approve Store</button>
+                <button {{-- id="approve" --}} type="submit" class="btn btn-danger float-right">Invoice Approve Store</button>
                </form>
                 
                 </div>

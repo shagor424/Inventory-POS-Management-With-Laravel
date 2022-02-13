@@ -24,6 +24,8 @@ use App\Model\Customer;
 use PDF;
 class InvoiceController extends Controller
 {
+
+    
    public function view(){
 	$data = Invoice::orderby('id','DESC')->latest()->orderby('invoice_date','DESC')->where('status','1')->get();
     

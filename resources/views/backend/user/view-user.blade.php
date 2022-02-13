@@ -46,7 +46,7 @@
                     <th>SL</th>
                     <th>ID</th>
                     <th>User Type</th>
-                    <th>Name</th>s
+                    <th>Name</th>
                     <th>Email</th>
                     <th>Mobile</th>
                     <th>Code</th>

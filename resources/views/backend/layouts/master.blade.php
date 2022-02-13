@@ -71,8 +71,6 @@
       <li class="nav-item">
         <a style="color: white" class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-
-      <li  ><h4 style="display: block;color: white;margin-left: 350px;padding-top: 5px">{{date('d-M-Y   h:i A')}}</h4></li>
     </ul>
   
 

@@ -28,7 +28,7 @@ class DefaultController extends Controller
 
     public function subgetcategory(Request $request){
      $category_id = $request->category_id;
-     $allsubcategory = Product::with(['subcategory'])->select('sub_category_id')->where('category_id',$category_id)->groupBy('sub_category_id')->get();
+     $allsubcategory = SubCategory::where('id',$category_id)->groupBy('sub_category_id')->get();
      return response()->json($allsubcategory);
 
    }
